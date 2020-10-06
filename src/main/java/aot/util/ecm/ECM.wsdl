@@ -1,0 +1,461 @@
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://tempuri.org/">
+<wsdl:types>
+<s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+<s:element name="createRICFolder">
+<s:complexType>
+<s:sequence>
+<s:element maxOccurs="1" minOccurs="0" name="xappKey" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xAirport" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xCategory" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xPeriod" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xRICNumber" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="createRICFolderResponse">
+<s:complexType>
+<s:sequence>
+<s:element maxOccurs="1" minOccurs="0" name="createRICFolderResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="uploadDoc">
+<s:complexType>
+<s:sequence>
+<s:element maxOccurs="1" minOccurs="0" name="xappKey" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xAirport" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xCategory" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xPeriod" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xRICNumber" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xdocName" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xfileName" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xcontent" type="s:base64Binary"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="uploadDocResponse">
+<s:complexType>
+<s:sequence>
+<s:element maxOccurs="1" minOccurs="0" name="uploadDocResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="downloadDoc">
+<s:complexType>
+<s:sequence>
+<s:element maxOccurs="1" minOccurs="0" name="xappKey" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xAirport" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xCategory" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xPeriod" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xRICNumber" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xdocName" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="downloadDocResponse">
+<s:complexType>
+<s:sequence>
+<s:element maxOccurs="1" minOccurs="0" name="downloadDocResult" type="s:base64Binary"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="getDocList">
+<s:complexType>
+<s:sequence>
+<s:element maxOccurs="1" minOccurs="0" name="xappKey" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xAirport" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xCategory" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xPeriod" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xRICNumber" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="getDocListResponse">
+<s:complexType>
+<s:sequence>
+<s:element maxOccurs="1" minOccurs="0" name="getDocListResult" type="tns:ArrayOfNodeInfo"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ArrayOfNodeInfo">
+<s:sequence>
+<s:element maxOccurs="unbounded" minOccurs="0" name="NodeInfo" nillable="true" type="tns:NodeInfo"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="NodeInfo">
+<s:sequence>
+<s:element maxOccurs="1" minOccurs="0" name="NodeID" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="NodeName" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="FileName" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="NodeURL" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="NodeType" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="NodeParentID" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="NodeParentName" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="deleteRICFolder">
+<s:complexType>
+<s:sequence>
+<s:element maxOccurs="1" minOccurs="0" name="xappKey" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xAirport" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xCategory" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xPeriod" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xRICNumber" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="deleteRICFolderResponse">
+<s:complexType>
+<s:sequence>
+<s:element maxOccurs="1" minOccurs="0" name="deleteRICFolderResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="deleteDoc">
+<s:complexType>
+<s:sequence>
+<s:element maxOccurs="1" minOccurs="0" name="xappKey" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xAirport" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xCategory" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xPeriod" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xRICNumber" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xdocName" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="deleteDocResponse">
+<s:complexType>
+<s:sequence>
+<s:element maxOccurs="1" minOccurs="0" name="deleteDocResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="getRICFolderLink">
+<s:complexType>
+<s:sequence>
+<s:element maxOccurs="1" minOccurs="0" name="xappKey" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xAirport" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xCategory" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xPeriod" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xRICNumber" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="getRICFolderLinkResponse">
+<s:complexType>
+<s:sequence>
+<s:element maxOccurs="1" minOccurs="0" name="getRICFolderLinkResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="getDocLink">
+<s:complexType>
+<s:sequence>
+<s:element maxOccurs="1" minOccurs="0" name="xappKey" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xAirport" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xCategory" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xPeriod" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xRICNumber" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xdocName" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="getDocLinkResponse">
+<s:complexType>
+<s:sequence>
+<s:element maxOccurs="1" minOccurs="0" name="getDocLinkResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="updateCategoryData">
+<s:complexType>
+<s:sequence>
+<s:element maxOccurs="1" minOccurs="0" name="xappKey" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xAirport" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xCategory" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xPeriod" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xRICNumber" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xdocName" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xCategoryTemplateName" type="s:string"/>
+<s:element maxOccurs="1" minOccurs="0" name="xAttributeValues" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="updateCategoryDataResponse">
+<s:complexType>
+<s:sequence>
+<s:element maxOccurs="1" minOccurs="0" name="updateCategoryDataResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+</s:schema>
+</wsdl:types>
+<wsdl:message name="deleteDocSoapOut">
+<wsdl:part name="parameters" element="tns:deleteDocResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="getRICFolderLinkSoapIn">
+<wsdl:part name="parameters" element="tns:getRICFolderLink"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="getDocListSoapIn">
+<wsdl:part name="parameters" element="tns:getDocList"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="deleteRICFolderSoapOut">
+<wsdl:part name="parameters" element="tns:deleteRICFolderResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="updateCategoryDataSoapIn">
+<wsdl:part name="parameters" element="tns:updateCategoryData"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="createRICFolderSoapOut">
+<wsdl:part name="parameters" element="tns:createRICFolderResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="uploadDocSoapIn">
+<wsdl:part name="parameters" element="tns:uploadDoc"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="getRICFolderLinkSoapOut">
+<wsdl:part name="parameters" element="tns:getRICFolderLinkResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="deleteRICFolderSoapIn">
+<wsdl:part name="parameters" element="tns:deleteRICFolder"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="getDocListSoapOut">
+<wsdl:part name="parameters" element="tns:getDocListResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="getDocLinkSoapIn">
+<wsdl:part name="parameters" element="tns:getDocLink"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="uploadDocSoapOut">
+<wsdl:part name="parameters" element="tns:uploadDocResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="getDocLinkSoapOut">
+<wsdl:part name="parameters" element="tns:getDocLinkResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="createRICFolderSoapIn">
+<wsdl:part name="parameters" element="tns:createRICFolder"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="downloadDocSoapIn">
+<wsdl:part name="parameters" element="tns:downloadDoc"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="downloadDocSoapOut">
+<wsdl:part name="parameters" element="tns:downloadDocResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="deleteDocSoapIn">
+<wsdl:part name="parameters" element="tns:deleteDoc"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="updateCategoryDataSoapOut">
+<wsdl:part name="parameters" element="tns:updateCategoryDataResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:portType name="OTRICSoap">
+<wsdl:operation name="createRICFolder">
+<wsdl:input message="tns:createRICFolderSoapIn"> </wsdl:input>
+<wsdl:output message="tns:createRICFolderSoapOut"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="uploadDoc">
+<wsdl:input message="tns:uploadDocSoapIn"> </wsdl:input>
+<wsdl:output message="tns:uploadDocSoapOut"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="downloadDoc">
+<wsdl:input message="tns:downloadDocSoapIn"> </wsdl:input>
+<wsdl:output message="tns:downloadDocSoapOut"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getDocList">
+<wsdl:input message="tns:getDocListSoapIn"> </wsdl:input>
+<wsdl:output message="tns:getDocListSoapOut"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="deleteRICFolder">
+<wsdl:input message="tns:deleteRICFolderSoapIn"> </wsdl:input>
+<wsdl:output message="tns:deleteRICFolderSoapOut"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="deleteDoc">
+<wsdl:input message="tns:deleteDocSoapIn"> </wsdl:input>
+<wsdl:output message="tns:deleteDocSoapOut"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getRICFolderLink">
+<wsdl:input message="tns:getRICFolderLinkSoapIn"> </wsdl:input>
+<wsdl:output message="tns:getRICFolderLinkSoapOut"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getDocLink">
+<wsdl:input message="tns:getDocLinkSoapIn"> </wsdl:input>
+<wsdl:output message="tns:getDocLinkSoapOut"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="updateCategoryData">
+<wsdl:input message="tns:updateCategoryDataSoapIn"> </wsdl:input>
+<wsdl:output message="tns:updateCategoryDataSoapOut"> </wsdl:output>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="OTRICSoap" type="tns:OTRICSoap">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="createRICFolder">
+<soap:operation soapAction="http://tempuri.org/createRICFolder" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="uploadDoc">
+<soap:operation soapAction="http://tempuri.org/uploadDoc" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="downloadDoc">
+<soap:operation soapAction="http://tempuri.org/downloadDoc" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getDocList">
+<soap:operation soapAction="http://tempuri.org/getDocList" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="deleteRICFolder">
+<soap:operation soapAction="http://tempuri.org/deleteRICFolder" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="deleteDoc">
+<soap:operation soapAction="http://tempuri.org/deleteDoc" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getRICFolderLink">
+<soap:operation soapAction="http://tempuri.org/getRICFolderLink" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getDocLink">
+<soap:operation soapAction="http://tempuri.org/getDocLink" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="updateCategoryData">
+<soap:operation soapAction="http://tempuri.org/updateCategoryData" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="OTRICSoap12" type="tns:OTRICSoap">
+<soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="createRICFolder">
+<soap12:operation soapAction="http://tempuri.org/createRICFolder" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="uploadDoc">
+<soap12:operation soapAction="http://tempuri.org/uploadDoc" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="downloadDoc">
+<soap12:operation soapAction="http://tempuri.org/downloadDoc" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getDocList">
+<soap12:operation soapAction="http://tempuri.org/getDocList" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="deleteRICFolder">
+<soap12:operation soapAction="http://tempuri.org/deleteRICFolder" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="deleteDoc">
+<soap12:operation soapAction="http://tempuri.org/deleteDoc" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getRICFolderLink">
+<soap12:operation soapAction="http://tempuri.org/getRICFolderLink" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getDocLink">
+<soap12:operation soapAction="http://tempuri.org/getDocLink" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="updateCategoryData">
+<soap12:operation soapAction="http://tempuri.org/updateCategoryData" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="OTRIC">
+<wsdl:port name="OTRICSoap12" binding="tns:OTRICSoap12">
+<soap12:address location="http://150.95.24.42:5001/ECM12"/>
+</wsdl:port>
+<wsdl:port name="OTRICSoap" binding="tns:OTRICSoap">
+<soap:address location="http://cntdeqapp.airportthai.co.th/AOTWS/OTRIC.asmx"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>
